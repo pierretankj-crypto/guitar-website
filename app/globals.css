@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts (set in app/layout.tsx) */
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  /* Warm cream background, dark text */
+  --color-cream: #fff8f0;
+  --color-sand: #fdefe0;
+  --color-ink: #1c1917;
+  --color-ink-soft: #44403c;
+  --color-muted: #57534e;
+  --color-line: #ede4d9;
+
+  /*
+   * Accent: warm orange.
+   * brand-600 is the button colour (white text = 5.0:1 contrast, WCAG AA).
+   * brand-700 is for orange text on light backgrounds (5.5:1).
+   * brand-400/500 are decorative only (icons, shapes) - never for small text.
+   */
+  --color-brand-50: #fff4ea;
+  --color-brand-100: #ffe8d4;
+  --color-brand-200: #fed2ad;
+  --color-brand-400: #fb8a3c;
+  --color-brand-500: #f97316;
+  --color-brand-600: #c93f0a;
+  --color-brand-700: #b83a0a;
+  --color-brand-800: #8f2d08;
+
+  --color-whatsapp: #15803d;
+  --color-whatsapp-dark: #116632;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand-600);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+}
